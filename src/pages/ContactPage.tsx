@@ -117,7 +117,7 @@ export default function ContactPage() {
                       For general inquiries:
                     </p>
                     <a
-                      href={"mailto:" + AQUATICA_EMAIL}
+                      href={"mailto:" + Coming Soon}
                       className="text-aqua hover:underline"
                     >
                       {AQUATICA_EMAIL}
