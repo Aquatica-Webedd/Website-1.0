@@ -91,7 +91,7 @@ export default function ContactPage() {
   };
 
   // perhaps a constants.ts file is needed?
-  const AQUATICA_EMAIL = "info@aquaticamc.uk";
+  const AQUATICA_EMAIL = "WIP";
 
   return (
     <PageLayout>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                       For general inquiries:
                     </p>
                     <a
-                      href={"mailto:" + Coming Soon}
+                      href={"mailto:" + AQUATICA_EMAIL}
                       className="text-aqua hover:underline"
                     >
                       {AQUATICA_EMAIL}
