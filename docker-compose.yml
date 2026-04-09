@@ -1,0 +1,13 @@
+services:
+  aquatica:
+    container_name: aquatica
+    image: ghcr.io/aquatica-webedd/website:latest
+    restart: unless-stopped
+    ports:
+      - '77:80'
+    networks:
+      - nginx_default
+
+networks:
+  nginx_default:
+    external: true
