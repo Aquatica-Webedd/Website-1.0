@@ -29,3 +29,7 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/aquatica-webedd/website:latest
+permissions:
+      contents: read
+      packages: write
+      id-token: write
