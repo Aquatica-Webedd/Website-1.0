@@ -1,12 +1,13 @@
-FROM nginx:latest
+# Stage 1 — build
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-LABEL org.opencontainers.image.source=https://github.com/Aquatica-Webedd/website
-
-
-WORKDIR /usr/share/nginx/html
-
-COPY . /usr/share/nginx/html/
-
-# Expose port 80
-EXPOSE 79
+# Stage 2 — serve
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
