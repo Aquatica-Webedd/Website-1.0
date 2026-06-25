@@ -29,6 +29,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/aquatica-webedd/website-1.0:latest
+          build-args: |
+            VITE_WEBHOOK_URL=${{ secrets.VITE_WEBHOOK_URL }}
 permissions:
       contents: read
       packages: write
