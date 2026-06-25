@@ -5,6 +5,8 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
+ARG VITE_WEBHOOK_URL
+ENV VITE_WEBHOOK_URL=$VITE_WEBHOOK_URL
 
 # Stage 2 — serve
 FROM nginx:alpine
