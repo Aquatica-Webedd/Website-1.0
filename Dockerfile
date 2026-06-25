@@ -1,12 +1,12 @@
 # Stage 1 — build
 FROM node:20-alpine AS builder
 WORKDIR /app
+ARG VITE_WEBHOOK_URL
+ENV VITE_WEBHOOK_URL=$VITE_WEBHOOK_URL
 COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
-ARG VITE_WEBHOOK_URL
-ENV VITE_WEBHOOK_URL=$VITE_WEBHOOK_URL
 
 # Stage 2 — serve
 FROM nginx:alpine
